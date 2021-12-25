@@ -14,9 +14,9 @@ export default function List() {
     profit: "100",
     purchaseDate: "Dec. 13",
     size: "10",
-    status: "On Hand",
+    status: "Sold",
   };
-  const items = [item];
+  const items = [item, item, item];
 
   const renderItems = items.map((item) => (
     <ListItem
@@ -34,7 +34,7 @@ export default function List() {
     <Container maxWidth="sm">
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <Typography variant="h4">December 2021</Typography>
+          <Typography variant="h1">December 2021</Typography>
           {renderItems}
         </Grid>
       </Grid>

@@ -11,8 +11,19 @@ function ListItem({
   purchaseDate,
   profit,
 }) {
+  let statusBadge;
+  switch (status) {
+    case "Sold":
+      statusBadge = <Chip color="success" label={status} />;
+    case "On hand":
+      statusBadge = <Chip color="warning" label={status} />;
+    case "In transit":
+      statusBadge = <Chip color="secondary" label={status} />;
+    case "Hold":
+      statusBadge = <Chip color="info" label={status} />;
+  }
   return (
-    <>
+    <div style={{ marginBottom: "3%" }}>
       <Card variant="outlined">
         <CardContent>
           <Grid container spacing={4}>
@@ -24,21 +35,25 @@ function ListItem({
                 height="100%"
                 layout="responsive"
               />
-              <Typography variant="h6">Size {size}</Typography>
+              <Typography color="primary" variant="h4">
+                Size {size}
+              </Typography>
             </Grid>
             <Grid item xs={7}>
-              <Typography variant="h6">{purchaseDate}</Typography>
-              <Typography variant="h5">{title}</Typography>
+              <Typography variant="h4">{purchaseDate}</Typography>
               <br />
-              <Typography>Cost: $ {purchasePrice}</Typography>
-              <Typography>Profit: $ {profit}</Typography>
+              <Typography variant="h4">{title}</Typography>
               <br />
-              <Chip label={status} />
+              <Typography variant="h5">Cost: $ {purchasePrice}</Typography>
+              <Typography variant="h5">Profit: $ {profit}</Typography>
+              <br />
+
+              {statusBadge}
             </Grid>
           </Grid>
         </CardContent>
       </Card>
-    </>
+    </div>
   );
 }
 
