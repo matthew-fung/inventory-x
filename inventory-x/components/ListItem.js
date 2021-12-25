@@ -1,49 +1,42 @@
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { Card, CardContent, Chip, Grid, Typography } from "@material-ui/core";
 import Image from "next/image";
 import React from "react";
 
-function ListItem() {
+function ListItem({
+  imageSrc,
+  title,
+  status,
+  size,
+  purchasePrice,
+  purchaseDate,
+  profit,
+}) {
   return (
     <>
       <Card variant="outlined">
         <CardContent>
-          <Grid container spacing={5}>
-            <Grid item xs={4}>
+          <Grid container spacing={4}>
+            <Grid item xs={5}>
               <Image
-                src="https://image.goat.com/240/attachments/product_template_pictures/images/031/693/881/original/51181_00.png.png"
+                src={imageSrc}
                 alt="Picture of the author"
                 width="100%"
                 height="100%"
                 layout="responsive"
               />
+              <Typography variant="h6">Size {size}</Typography>
             </Grid>
-            <Grid item xs={8}>
-              {" "}
-              <Typography color="text.secondary">Item</Typography>
-              <Typography variant="h5" component="div">
-                aaa
-              </Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                adjective
-              </Typography>
-              <Typography variant="body2">
-                well meaning and kindly.
-                <br />
-                {'"a benevolent smile"'}
-              </Typography>
+            <Grid item xs={7}>
+              <Typography variant="h6">{purchaseDate}</Typography>
+              <Typography variant="h5">{title}</Typography>
+              <br />
+              <Typography>Cost: $ {purchasePrice}</Typography>
+              <Typography>Profit: $ {profit}</Typography>
+              <br />
+              <Chip label={status} />
             </Grid>
           </Grid>
         </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
       </Card>
     </>
   );
