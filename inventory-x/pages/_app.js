@@ -5,10 +5,10 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 export const themeOptions = createTheme({
   palette: {
     primary: {
-      main: "#301E5D",
+      main: "#8A84E2",
     },
     secondary: {
-      main: "#8A84E2",
+      main: "#301E5D",
     },
   },
   typography: {
