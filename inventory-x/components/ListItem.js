@@ -1,7 +1,7 @@
 import { Card, CardContent, Chip, Grid, Typography } from "@material-ui/core";
 import Image from "next/image";
 import React from "react";
-
+import { withTheme } from "@material-ui/core/styles";
 function ListItem({
   imageSrc,
   title,
@@ -35,20 +35,27 @@ function ListItem({
                 height="100%"
                 layout="responsive"
               />
-              <Typography color="primary" variant="h4">
+              <Typography align="center" color="primary" variant="h4">
                 Size {size}
               </Typography>
             </Grid>
             <Grid item xs={7}>
-              <Typography variant="h4">{purchaseDate}</Typography>
+              {/* TODO: make this container alignitems stretch*/}
+              <Grid container spacing={4}>
+                <Grid item xs={7} sm={7}>
+                  <Typography variant="h4" style={{ marginTop: "5%" }}>
+                    {purchaseDate}
+                  </Typography>
+                </Grid>
+                <Grid item xs={5}>
+                  {statusBadge}
+                </Grid>
+              </Grid>
               <br />
-              <Typography variant="h4">{title}</Typography>
+              <Typography variant="h5">{title}</Typography>
               <br />
-              <Typography variant="h5">Cost: $ {purchasePrice}</Typography>
-              <Typography variant="h5">Profit: $ {profit}</Typography>
-              <br />
-
-              {statusBadge}
+              <Typography variant="h5">Cost: ${purchasePrice}</Typography>
+              <Typography variant="h5">Profit: ${profit}</Typography>
             </Grid>
           </Grid>
         </CardContent>
@@ -57,4 +64,4 @@ function ListItem({
   );
 }
 
-export default ListItem;
+export default withTheme(ListItem);

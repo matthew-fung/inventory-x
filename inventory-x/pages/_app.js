@@ -13,19 +13,19 @@ export const themeOptions = createTheme({
   },
   typography: {
     h1: {
-      fontSize: "3rem",
+      fontSize: "2rem",
     },
     h2: {
-      fontSize: "1.8rem",
+      fontSize: "1.7rem",
     },
     h3: {
-      fontSize: "1.5rem",
+      fontSize: "1.3rem",
     },
     h4: {
       fontSize: "1.1rem",
     },
     h5: {
-      fontSize: "0.7rem",
+      fontSize: "0.9rem",
     },
     h6: {
       fontSize: "0.7rem",
